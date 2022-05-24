@@ -6,16 +6,16 @@ public class App {
         g2.setPriority(10);
         g1.start();
         g2.start();
-        System.out.println(g1.getTotale()); //boh non stampa il totale
-        System.out.println(g2.getTotale());
+        Thread.sleep(4000); //attesa per i risulatati
+        
 
         if (g1.getTotale()> g2.getTotale())
         {
-            System.out.println("Giocatore "+ g1.getNome() + " ha vinto il gioco");
+            System.out.println("Giocatore "+ g1.getNome() + " ha vinto il gioco!!!!!!!");
         }
         else if(g1.getTotale()<g2.getTotale())
         {
-            System.out.println("Giocatore "+ g2.getNome() + " ha vinto il gioco");
+            System.out.println("Giocatore "+ g2.getNome() + " ha vinto il gioco!!!!!!!");
         } 
         else{
             System.out.println("Parita?");

@@ -1,13 +1,19 @@
+import javax.swing.ToolTipManager;
+
 public class Giocatore extends Thread{
     private String nome;
     private int totale =0;
     
 
-    public Giocatore(String nome) {this.nome = nome;}
+    public Giocatore(String nome) {
+        this.nome = nome;
+        this.totale = totale;
+    }
 
     
     public String getNome() {
         return nome;
+
     }
 
 
@@ -73,7 +79,7 @@ public class Giocatore extends Thread{
         }
         while(lancio1==lancio2);
         try {
-            Thread.sleep(1500);
+            Thread.sleep(1000);
             
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
@@ -81,7 +87,7 @@ public class Giocatore extends Thread{
         }
         System.out.println("------Punteggio totale di "+ getNome()+ " è di "+ getTotale()+"---------");
         try {
-            Thread.sleep(500);
+            Thread.sleep(400);
             
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block

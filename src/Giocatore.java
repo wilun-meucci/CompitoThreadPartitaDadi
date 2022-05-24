@@ -1,5 +1,6 @@
 public class Giocatore extends Thread{
     private String nome;
+    private int totale =0;
     
 
     public Giocatore(String nome) {this.nome = nome;}
@@ -19,7 +20,18 @@ public class Giocatore extends Thread{
         return (int)(Math.random()*7);
     }
 
+
     
+
+
+    public int getTotale() {
+        return totale;
+    }
+
+
+    public void setTotale(int lancio1,int lancio2) {
+        this.totale = lancio1+lancio2;
+    }
 
 
     @Override
@@ -36,7 +48,7 @@ public class Giocatore extends Thread{
         }
         int lancio1;
         int lancio2;
-        int totale=0;
+        
         do{
             lancio1 = lancioDati();
             
@@ -49,7 +61,8 @@ public class Giocatore extends Thread{
         }while(lancio2==0);
         System.out.println("\nIl giocatore " + getNome()+" ha ottenuto come risultato dal Dado 1 "+ "'"+lancio1+ "'"+" e dal Dado 2 " + "'"+lancio2 + "'");
         do{
-            totale+= lancio1 + lancio2;
+            
+             this.setTotale(lancio1,lancio2);
             if (lancio1==lancio2)
             {
                 System.out.println("\n!!!!!!Lancio bonus di "+ getNome()+"!!!!!!");
@@ -66,8 +79,16 @@ public class Giocatore extends Thread{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println("------Punteggio totale di "+ getNome()+ " è di "+ totale+"---------");
-
+        System.out.println("------Punteggio totale di "+ getNome()+ " è di "+ getTotale()+"---------");
+        try {
+            Thread.sleep(500);
+            
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println("Il giocatore "+getNome()+" ha terminato la partita");
+        
 
     }
     
